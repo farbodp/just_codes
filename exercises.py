@@ -2,12 +2,47 @@
  Given strings a and b, return a single string with a and b separated
  by a space '<a> <b>', except swap the first 2 chars of each string.
  e.g.
-   'mix', pod' -> 'pox mid'
+   'mix', 'pod' -> 'pox mid'
    'dog', 'dinner' -> 'dig donner'
  Assume a and b are length 2 or more.'''
 def mix_up(a, b):
+  return b[:2]+a[2:]+' '+a[:2]+b[2:]
+
+
+
+''' -verbing
+Given a string, if its length is at least 3,
+add 'ing' to its end.
+Unless it already ends in 'ing', in which case
+add 'ly' instead.
+If the string length is less than 3, leave it unchanged.
+Return the resulting string.'''
+def verbing(s):
   # +++your code here+++
   return
+
+
+
+'''Write a Python function to remove the nth index character from a nonempty string.'''
+def remove_char(s, n):
+  return s[:n] + s[n+1:]
+
+
+
+'''Write a Python program to change a given string to a new string
+where the first and last chars have been exchanged.'''
+def change_string(str1):
+  # +++your code here+++
+  return
+
+
+
+'''Write a Python function to insert a string in the middle of a string'''
+def insert_string_middle(s, word):
+  # +++your code here+++
+  return
+
+
 
 
 '''-donuts
@@ -23,6 +58,7 @@ def donuts(count):
 
 
 
+
 '''-both_ends
  Given a string s, return a string made of the first 2
  and the last 2 chars of the original string,
@@ -31,6 +67,22 @@ def donuts(count):
 def both_ends(s):
   # +++your code here+++
   return
+
+
+
+
+''' -front_back
+ Consider dividing a string into two halves.
+ If the length is even, the front and back halves are the same length.
+ If the length is odd, we'll say that the extra char goes in the front half.
+ e.g. 'abcde', the front half is 'abc', the back half 'de'.
+ Given 2 strings, a and b, return a string of the form
+  a-front + b-front + a-back + b-back'''
+def front_back(a, b):
+  # +++your code here+++
+  return
+
+
 
 
 '''-fix_start
@@ -43,8 +95,9 @@ def both_ends(s):
  Hint: s.replace(stra, strb) returns a version of string s
  where all instances of stra have been replaced by strb.'''
 def fix_start(s):
-  # +++your code here+++
-  return
+  return s[0] + s[1:].replace(s[0], '*')
+
+
 
 
 ''' The goal of this exercise is to convert a string to a new string
@@ -63,6 +116,7 @@ def duplicate_encode(word):
   return
 
 
+
 ''' This time no story, no theory. The examples below show you how to write function accum:
  Examples:
  accum("abcd") -> "A-Bb-Ccc-Dddd"
@@ -75,6 +129,7 @@ def accum(word):
   return
 
 
+
 ''' The parameter weekday is True if it is a weekday,
  and the parameter vacation is True if we are on vacation.
  We sleep in if it is not a weekday or we're on vacation. Return True if we sleep in.
@@ -82,8 +137,11 @@ def accum(word):
  sleep_in(True, False) → False
  sleep_in(False, True) → True '''
 def sleep_in(weekday, vacation):
-  # +++your code here+++
-  return
+  if weekday==True and vacation==False:
+      return False
+  else:
+      return True
+
 
 
 ''' Write a function called accept_login(users, username, password)
@@ -96,9 +154,9 @@ def accept_login(users, username, password):
   return
 
 
+
 '''Write a function that takes in a string of one or more words,
 and returns the same string, but with all five or more letter words reversed
-(Just like the name of this Kata).
 Strings passed in will consist of only letters and spaces.
 Spaces will be included only when more than one word is present.
 Examples:
@@ -111,4 +169,10 @@ def spin_words(sentence):
     return
 
 
-# just for test
+
+
+# when you run this file, the program starts from here:
+if __name__=='__main__':
+    print(fix_start('babble'))
+
+  

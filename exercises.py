@@ -100,6 +100,7 @@ def fix_start(s):
 
 
 
+
 ''' The goal of this exercise is to convert a string to a new string
  where each character in the new string is '(' if that character
  appears only once in the original string, or ')' if that character
@@ -117,6 +118,7 @@ def duplicate_encode(word):
 
 
 
+
 ''' This time no story, no theory. The examples below show you how to write function accum:
  Examples:
  accum("abcd") -> "A-Bb-Ccc-Dddd"
@@ -127,6 +129,7 @@ def duplicate_encode(word):
 def accum(word):
   # +++your code here+++
   return
+
 
 
 
@@ -165,14 +168,98 @@ spinWords( "This is a test") => returns "This is a test"
 spinWords( "This is another test" )=> returns "This is rehtona test"
 '''
 def spin_words(sentence):
-    # Your code goes here
-    return
+  # +++your code here+++
+  return
+
+
+
+
+''' -match_ends
+ Given a list of strings, return the count of the number of
+ strings where the string length is 2 or more and the first
+ and last chars of the string are the same.
+ Note: python does not have a ++ operator, but += works.
+ examples:['aba', 'xyz', 'aa', 'x', 'bbb'] should return 3
+          ['', 'x', 'xy', 'xyx', 'xx'] should return 2 '''
+def match_ends(words):
+  # +++your code here+++
+  return
+
+
+
+
+
+''' -front_x
+ Given a list of strings, return a list with the strings
+ in sorted order, except group all the strings that begin with 'x' first.
+ e.g. ['mix', 'xyz', 'apple', 'xanadu', 'aardvark'] yields
+ ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
+ Hint: this can be done by making 2 lists and sorting each of them
+ before combining them.'''
+def front_x(words):
+  # +++your code here+++
+  return
+
+
+
+
+
+''' -Given a list of numbers, return a list where
+# all adjacent == elements have been reduced to a single element,
+# so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
+# modify the passed in list.'''
+def remove_adjacent(nums):
+  # +++your code here+++
+  return
+
+
+
+
+''' -sort_last
+ Given a list of non-empty tuples, return a list sorted in increasing
+ order by the last element in each tuple.
+ e.g. [(1, 7), (1, 3), (3, 4, 5), (2, 2)] yields
+ [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
+ Hint: use a custom key= function to extract the last element form each tuple.'''
+def sort_last(tuples):
+  # +++your code here+++
+  return
+
+
+
+''' -Given two lists sorted in increasing order, create and return a merged
+ list of all the elements in sorted order. You may modify the passed in lists.
+ Ideally, the solution should work in "linear" time, making a single
+ pass of both lists.'''
+def linear_merge(list1, list2):
+  # +++your code here+++
+  return
+
+
+
+'''John has invited some friends. His list is:
+
+s = "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill";
+Could you make a program that
+
+makes this string uppercase
+gives it sorted in alphabetical order by last name.
+When the last names are the same, sort them by first name. Last name and first name of a guest come in the result between parentheses separated by a comma.
+
+So the result of function meeting(s) will be:
+
+"(CORWILL, ALFRED)(CORWILL, FRED)(CORWILL, RAPHAEL)(CORWILL, WILFRED)(TORNBULL, BARNEY)(TORNBULL, BETTY)(TORNBULL, BJON)"
+'''
+def meeting(s):
+  # +++your code here+++
+  return
+
 
 
 
 
 # when you run this file, the program starts from here:
 if __name__=='__main__':
-    print(fix_start('babble'))
+    print(spin_words('This is another test'))
 
   

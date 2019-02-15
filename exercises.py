@@ -6,7 +6,7 @@
    'dog', 'dinner' -> 'dig donner'
  Assume a and b are length 2 or more.'''
 def mix_up(a, b):
-  return b[:2]+a[2:]+' '+a[:2]+b[2:]
+  return b[:2] + a[2:] + ' ' + a[:2] + b[2:]
 
 
 
@@ -53,8 +53,10 @@ def insert_string_middle(s, word):
  So donuts(5) returns 'Number of donuts: 5'
  and donuts(23) returns 'Number of donuts: many'''
 def donuts(count):
-  # +++your code here+++
-  return
+  if count >=10:
+    return 'Number of donuts: many'
+  else:
+    return 'Number of donuts: {}'.format(count)
 
 
 
@@ -121,14 +123,16 @@ def duplicate_encode(word):
 
 ''' This time no story, no theory. The examples below show you how to write function accum:
  Examples:
- accum("abcd") -> "A-Bb-Ccc-Dddd"
+ accum("abcd") -> "Aa-Bbb-Cccc-Ddddd"
  accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
  accum("cwAt") -> "C-Ww-Aaa-Tttt"
  The parameter of accum is a string which includes only letters from a..z and A..Z.
 '''
 def accum(word):
-  # +++your code here+++
-  return
+  new_list = []
+  for ind, char in enumerate(word):
+      new_list.append(char.upper()+char.lower()*ind)
+  return '-'.join(new_list)
 
 
 
@@ -168,8 +172,14 @@ spinWords( "This is a test") => returns "This is a test"
 spinWords( "This is another test" )=> returns "This is rehtona test"
 '''
 def spin_words(sentence):
-  # +++your code here+++
-  return
+  new_list = []
+  words = sentence.split()
+  for word in words:
+      if len(word)>=5:
+          new_list = new_list + [word[::-1]]
+      else:
+          new_list = new_list + [word]
+  return ' '.join(new_list)
 
 
 
@@ -182,8 +192,11 @@ def spin_words(sentence):
  examples:['aba', 'xyz', 'aa', 'x', 'bbb'] should return 3
           ['', 'x', 'xy', 'xyx', 'xx'] should return 2 '''
 def match_ends(words):
-  # +++your code here+++
-  return
+  count = 0
+  for word in words:
+      if len(word)>=2 and word[0]==word[-1]:
+          count += 1
+  return count
 
 
 
@@ -260,6 +273,6 @@ def meeting(s):
 
 # when you run this file, the program starts from here:
 if __name__=='__main__':
-    print(spin_words('This is another test'))
+    print(accum('RqaEzty'))
 
   

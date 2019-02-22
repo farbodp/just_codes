@@ -56,7 +56,8 @@ def donuts(count):
   if count >=10:
     return 'Number of donuts: many'
   else:
-    return 'Number of donuts: {}'.format(count)
+    return 'Number of donuts: {} and my name {}'.format(count)
+  print('hello')
 
 
 
@@ -123,18 +124,16 @@ def duplicate_encode(word):
 
 ''' This time no story, no theory. The examples below show you how to write function accum:
  Examples:
- accum("abcd") -> "Aa-Bbb-Cccc-Ddddd"
+ accum("abcd") -> "A-Bb-Ccc-Dddd"
  accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
  accum("cwAt") -> "C-Ww-Aaa-Tttt"
  The parameter of accum is a string which includes only letters from a..z and A..Z.
 '''
 def accum(word):
   new_list = []
-  for ind, char in enumerate(word):
-      new_list.append(char.upper()+char.lower()*ind)
+  for item in enumerate(word):
+    new_list.append(item[1].upper()+item[1].lower()*item[0])
   return '-'.join(new_list)
-
-
 
 
 ''' The parameter weekday is True if it is a weekday,
@@ -157,8 +156,7 @@ def sleep_in(weekday, vacation):
  password a string for a password. The function should return
  True if the user exists and the password is correct and False otherwise'''
 def accept_login(users, username, password):
-  # +++your code here+++
-  return
+  return username in users.keys() and users[username]==password
 
 
 
@@ -172,14 +170,11 @@ spinWords( "This is a test") => returns "This is a test"
 spinWords( "This is another test" )=> returns "This is rehtona test"
 '''
 def spin_words(sentence):
-  new_list = []
   words = sentence.split()
   for word in words:
-      if len(word)>=5:
-          new_list = new_list + [word[::-1]]
-      else:
-          new_list = new_list + [word]
-  return ' '.join(new_list)
+    if len(word)>=5:
+      sentence = sentence.replace(word, word[::-1])
+  return sentence
 
 
 
@@ -194,8 +189,8 @@ def spin_words(sentence):
 def match_ends(words):
   count = 0
   for word in words:
-      if len(word)>=2 and word[0]==word[-1]:
-          count += 1
+    if len(word)>=2 and word[0]==word[-1]:
+      count += 1
   return count
 
 
@@ -210,8 +205,14 @@ def match_ends(words):
  Hint: this can be done by making 2 lists and sorting each of them
  before combining them.'''
 def front_x(words):
-  # +++your code here+++
-  return
+  x_words = []
+  others = []
+  for word in words:
+    if word[0]=='x':
+      x_words.append(word)
+    else:
+      others.append(word)
+  return sorted(x_words) + sorted(others)
 
 
 
@@ -227,6 +228,10 @@ def remove_adjacent(nums):
 
 
 
+def last_elem(t):
+  return t[-1]
+
+
 
 ''' -sort_last
  Given a list of non-empty tuples, return a list sorted in increasing
@@ -235,8 +240,7 @@ def remove_adjacent(nums):
  [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
  Hint: use a custom key= function to extract the last element form each tuple.'''
 def sort_last(tuples):
-  # +++your code here+++
-  return
+  return sorted(tuples, key=last_elem)
 
 
 
@@ -273,6 +277,9 @@ def meeting(s):
 
 # when you run this file, the program starts from here:
 if __name__=='__main__':
-    print(accum('RqaEzty'))
+    users = {'farbod':'far', 'parvin':'par'}
+    username = 'pooya'
+    password = 123
+    print(accept_login(users, username, password))
 
   

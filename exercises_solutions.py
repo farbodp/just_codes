@@ -56,8 +56,7 @@ def donuts(count):
   if count >=10:
     return 'Number of donuts: many'
   else:
-    return 'Number of donuts: {} and my name {}'.format(count)
-  print('hello')
+    return 'Number of donuts: {}'.format(count)
 
 
 
@@ -171,10 +170,13 @@ spinWords( "This is another test" )=> returns "This is rehtona test"
 '''
 def spin_words(sentence):
   words = sentence.split()
+  new_words = []
   for word in words:
     if len(word)>=5:
-      sentence = sentence.replace(word, word[::-1])
-  return sentence
+     new_words.append(word[::-1])
+    else:
+     new_words.append(word)
+  return ' '.join(new_words)
 
 
 
@@ -277,9 +279,6 @@ def meeting(s):
 
 # when you run this file, the program starts from here:
 if __name__=='__main__':
-    users = {'farbod':'far', 'parvin':'par'}
-    username = 'pooya'
-    password = 123
-    print(accept_login(users, username, password))
+ pass
 
   
